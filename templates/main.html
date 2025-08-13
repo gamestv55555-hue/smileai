@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smile Ai</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+
+<body style="">
+<!--Меню НАЧАЛО -->
+<nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="/static/images/logo.svg" alt="Bootstrap" width="48">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Преимущества</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Как это работает?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Связаться с нами</a>
+                </li>
+                <li class="nav-item">
+                    {% if not session.logged_in %}
+                    <a class="nav-link" href="/register" style="color: #8100ad;">Личный кабинет</a>
+                    {% else %}
+                    <a class="nav-link" href="/userpage" style="color: #8100ad;">Личный кабинет</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--Меню КОНЕЦ-->
+<div>
+    <!-- Контент страницы -->
+    <div class="mx-auto" style="max-height: 1650px; max-width:1200px;">
+        <div class="container overflow-hidden">
+            <div class="row justify-content-md-center gx-5 gy-5">
+                <div class="col-sm-5">
+                    <p class="text_h2" style="font-weight: 700; margin-top: 100px;">
+                        <span class="txt_blue">БЫСТРАЯ</span> И <span class="txt_blue">КАЧЕСТВЕННАЯ</span><br>
+                        ДИАГНОСТИКА КАРИЕСА В<br>
+                        ДОМАШНИХ УСЛОВИЯХ
+                    </p>
+                    <p class="text_h4">
+                        Контролируйте состояние своих зубов не выходя из дома!
+                    </p>
+                    <a href="/register" class="btn btn-outline-primary text"
+                       style="border-radius: 25px; border: 2px solid;">Стать
+                        пользователем </a>
+                </div>
+                <div class="col-sm-5">
+                    <img src="/static/images/image.png" class="mx-auto"
+                         style="height: 350px; width: 350px; border-radius: 350px; margin-top: 10px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Тут он заканчивается-->
+
+    <!-- Блок как это работает?-->
+    <div class="mx-auto" style="max-height: 1650px; max-width:1200px;">
+        <p class="text_h1" style="text-align: center; font-weight: 700; margin-top: 80px;">Как это работает?</p>
+        <div class="container overflow-hidden">
+            <div class="row justify-content-md-center gx-5 gy-5">
+                <div class="col-sm-5">
+                    <svg class="numbers_size_2_r" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Smile Photo Icon (Phone capturing a smile)">
+                        <!-- Phone body -->
+                        <rect x="14" y="6" width="36" height="52" rx="6" stroke="#8100ad" stroke-width="2.5"/>
+                        <!-- Front camera dot -->
+                        <circle cx="32" cy="12" r="2" fill="#8100ad"/>
+
+                        <!-- Screen area -->
+                        <rect x="18" y="16" width="28" height="32" rx="3" stroke="#8100ad" stroke-width="2"/>
+
+                        <!-- Framing corners to imply taking a photo -->
+                        <path d="M20 20h6M20 20v6M44 20h-6M44 20v6M20 44h6M20 44v-6M44 44h-6M44 44v-6"
+                                stroke="#8100ad" stroke-width="2" stroke-linecap="round"/>
+
+                        <!-- Smile inside screen -->
+                        <path d="M24 34c2.5 3.5 5.5 5 8 5s5.5-1.5 8-5" stroke="#8100ad" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Dimples -->
+                        <circle cx="24" cy="34" r="1.2" fill="#8100ad"/>
+                        <circle cx="40" cy="34" r="1.2" fill="#8100ad"/>
+                    </svg>
+                    <p class="text_h3 txt_purple" style="font-weight: 500;">1 ЭТАП<br>Фото улыбки</p>
+                    <p class="text">сфотографируйте свою улыбку, следуя указанной инструкции</p>
+                </div>
+                <div class="col-sm-5">
+                    <svg class="numbers_size_2_r" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AI Tooth Analytics Icon">
+                        <path d="M40 10c6 0 10 4.8 10 11 0 8.5-5.2 10.8-7 18-1.2 5.2-2.6 9-7 9s-4.6-5-6-9c-1.6-4.8-3.4-6-6-6-5 0-10-4.8-10-12 0-6.2 4.4-11 10-11 4.6 0 6.8 2.2 9 2.2S36.5 10 40 10z" stroke="#8100ad" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="26" cy="20" r="3" stroke="#8100ad" stroke-width="2" fill="none"/>
+                        <path d="M29 20h4m-7 3v4m0-11v4" stroke="#8100ad" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="22" cy="24" r="1.6" fill="#8100ad"/>
+                        <circle cx="33" cy="20" r="1.6" fill="#8100ad"/>
+                        <g transform="translate(34,36)">
+                            <circle cx="10" cy="10" r="6.5" stroke="#8100ad" stroke-width="2.5" fill="none"/>
+                            <path d="M14.8 14.8l4.2 4.2" stroke="#8100ad" stroke-width="2.5" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                    <p class="text_h3 txt_purple" style="font-weight: 500;">2 ЭТАП<br>Аналитика на сайте</p>
+                    <p class="text">наш искусственный интеллект проведет аналитику ваших зубов </p>
+                </div>
+                <div class="col-sm-7">
+                    <svg class="numbers_size_2_r" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Results and Recommendations Icon">
+                        <rect x="10" y="12" width="44" height="34" rx="4" stroke="#8100ad" stroke-width="2.5"/>
+                        <rect x="14" y="16" width="36" height="18" rx="3" stroke="#8100ad" stroke-width="2"/>
+                        <path d="M20 28c3 2 7 3 12 3s9-1 12-3" stroke="#8100ad" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <circle cx="24" cy="24" r="2.2" fill="none" stroke="#8100ad" stroke-width="2"/>
+                        <circle cx="40" cy="22" r="2.2" fill="none" stroke="#8100ad" stroke-width="2"/>
+                        <path d="M18 50l4 4 8-10" stroke="#8100ad" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="30" y="46" width="20" height="8" rx="2" stroke="#8100ad" stroke-width="2"/>
+                        <path d="M33 50h14" stroke="#8100ad" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+
+                    <p class="text_h3 txt_purple" style="font-weight: 500;">3 ЭТАП<br>Результаты + Рекомендации</p>
+                    <ul class="text">
+                        <li>Вам прийдет уведомление о результатах детекции</li>
+                        <li>Вы получите размеченную фотографию с указанием мест локализации кариеса и налета</li>
+                        <li>Для вас индивидуальные стоматологические рекомендации</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Конец блока как это работает? -->
+
+    <!-- Пояснение зачем загрузать фото в приложение -->
+    <div class="mx-auto" style="max-height: 1650px; max-width:900px; margin-top: 50px; margin-left: 10px;">
+        <p class="border_purple margins text">Зачем загружать фотографии в приложение?</p>
+        <p class="border_purple_2 text">
+            Приложение анализирует снимок и отправляет вам результаты диагностики рта. Для вас формируется
+            индивидуальная методология предотвращения кариеса.<br><br>
+            Мы также подготовим для вас индивидуальные стоматологические принадлежности, методы чистки зубов и даже
+            укажет на продукты, которые могут плохо повлиять на здоровье вашей полости рта.<br>
+            Вы будете получать напоминания о чистке зубов с указанием мест, на которые стоит потратить больше
+            времени.<br><br>
+            Если у вас есть ребенок, мы погрузим его в стоматологическую грамотность при помощи геймификации, а вы
+            сможете следить за его прогрессом.
+        </p>
+    </div>
+
+    <!-- Блок преимущества -->
+    <div class="mx-auto" style="max-height: 1650px; max-width:900px;">
+        <p class="text_h1" style="text-align: center; font-weight: 700; margin-top: 20px;">ПРЕИМУЩЕСТВА</p>
+        <div class="margins">
+            <img src="/static/images/01.png" class="numbers_size">
+            <p style="font-weight: 700;" class="text_h2">
+                Ранняя диагностика
+            </p>
+            <p class="text" style="font-weight: 300;">
+                Наше приложение позволяет определять кариес на ранней стадии – когда его можно вылечить при помощи паст
+                и методов чистки.<br>
+                Вы можете забыть о дорогом и болезненном лечении
+            </p>
+        </div>
+
+        <div style="margin-top: 25px" class="margins">
+            <img src="/static/images/02.png" class="numbers_size">
+            <p style="font-weight: 700;" class="text_h2">
+                Экономия времени
+            </p>
+            <p class="text" style="font-weight: 300;">
+                Вы сможете проверить свои зубы на наличие кариеса за 5 минут в домашних условиях!
+            </p>
+        </div>
+
+        <div style="margin-top: 35px" class="margins">
+            <img src="/static/images/03.png" class="numbers_size">
+            <p style="font-weight: 700;" class="text_h2">Запись к врачу</p>
+            <p class="text" style="font-weight: 300;">
+                Полная аналитика ваших результатов и грамотные рекомендации по подбору стоматологических принадлежностей
+                в нашем приложении
+            </p>
+        </div>
+
+        <div style="margin-top: 30px" class="margins">
+            <img src="/static/images/04.png" class="numbers_size">
+            <p style="font-weight: 700;" class="text_h2">Аналитика</p>
+            <p class="text" style="font-weight: 300;">
+                Полная аналитика ваших результатов и грамотные рекомендации по подбору стоматологических принадлежностей
+                в нашем приложении
+            </p>
+        </div>
+    </div>
+    <!-- Конец блока преимущества -->
+
+</div>
+
+</body>
+</html>
